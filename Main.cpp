@@ -2,11 +2,12 @@
 #include <stdexcept>
 #include <iostream>
 #include <fstream>
+#include "EnigmaMachine.hpp"
 
 using namespace std;
 
 int main(int argc, char **argv)
 {
-  cout << "TODO: implement an Enigma machine" << endl;
+  shared_ptr <EnigmaMachine> machine(new EnigmaMachine(argc, argv));
   return 0;
 }
