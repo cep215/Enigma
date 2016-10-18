@@ -8,6 +8,8 @@
 
 class Plugboard {
 
+public:
+    Plugboard(char *string);
 };
 
 

@@ -28,7 +28,7 @@ class EnigmaMachine {
 
     public:
 
-        EnigmaMachine(int argv, char **argc);
+        EnigmaMachine(int argc, char **argv);
         char encode_chr(char c);
 
 };

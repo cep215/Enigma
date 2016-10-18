@@ -3,3 +3,7 @@
 //
 
 #include "Plugboard.hpp"
+
+Plugboard::Plugboard(char *string) {
+
+}

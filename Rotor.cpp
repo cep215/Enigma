@@ -3,3 +3,7 @@
 //
 
 #include "Rotor.hpp"
+
+Rotor::Rotor(char *string) {
+
+}

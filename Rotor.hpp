@@ -8,6 +8,8 @@
 
 class Rotor {
 
+public:
+    Rotor(char *string);
 };
 
 
