@@ -3,25 +3,25 @@
 CODE = Main.o Mapping.o Plugboard.o Rotor.o Reflector.o EnigmaMachine.o
 
 enigma: $(CODE)
-	clang++ -std=c++11 -stdlib=libc++ -o enigma $(CODE)
+	g++ -std=c++11  -o enigma $(CODE)
 
 Main.o: Main.cpp
-	clang++ -std=c++11 -stdlib=libc++ -c Main.cpp
+	g++ -std=c++11  -c Main.cpp
 
 EnigmaMachine.o: EnigmaMachine.cpp Mapping.o Plugboard.o Rotor.o Reflector.o
-	clang++ -std=c++11 -stdlib=libc++ -c EnigmaMachine.cpp
+	g++ -std=c++11  -c EnigmaMachine.cpp
 
 Mapping.o: Mapping.cpp
-	clang++ -std=c++11 -stdlib=libc++ -c Mapping.cpp
+	g++ -std=c++11  -c Mapping.cpp
 
 Plugboard.o: Plugboard.cpp
-	clang++ -std=c++11 -stdlib=libc++ -c Plugboard.cpp
+	g++ -std=c++11  -c Plugboard.cpp
 
 Rotor.o: Rotor.cpp
-	clang++ -std=c++11 -stdlib=libc++ -c Rotor.cpp
+	g++ -std=c++11  -c Rotor.cpp
 
 Reflector.o: Reflector.cpp
-	clang++ -std=c++11 -stdlib=libc++ -c Reflector.cpp
+	g++ -std=c++11  -c Reflector.cpp
 
 clean:
 	rm -rf enigma *.o

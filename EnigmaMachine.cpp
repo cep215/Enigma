@@ -67,7 +67,7 @@ char EnigmaMachine::encode_chr(char chr) {
     bool rotors_exist = (rotors.size() != 0);
 
     if(!(chr >= 'A' && chr <= 'Z')) {
-        exit(0);                       //TODO: Give an error message
+        exit(0);                       //TODO: Give an error message otherwise
     }
 
     int encryption = chr - 'A'; // integer representation of the letter to be encoded
