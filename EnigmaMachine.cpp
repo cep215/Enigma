@@ -2,10 +2,12 @@
 // Created by cep215 on 18/10/16.
 //
 #include "EnigmaMachine.hpp"
-
+#include <cassert>
 
 EnigmaMachine::EnigmaMachine(int argc, char **argv) {
 
+    assert(argc >= 2);
+    
     for(int i = 1; i <= argc - 2; i++) {
         shared_ptr <Rotor> r(new Rotor(argv[i]));
         rotors.push_back(r);
