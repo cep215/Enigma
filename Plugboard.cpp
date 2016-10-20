@@ -13,7 +13,8 @@ Plugboard::Plugboard(char *file) : Mapping() {
     ifstream f(file);
 
     if(!f) {
-        throw invalid_argument("File does not exist");
+        exit(1);
+        //throw invalid_argument("File does not exist");
     }
 
     while (f >> x) {
