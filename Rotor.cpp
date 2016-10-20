@@ -24,13 +24,29 @@ Rotor::Rotor(char *file) : Mapping() {
 }
 
 int Rotor::get_no_of_rotations() {
-    return 0;
+
+    return no_of_rotations;
+
 }
 
 void Rotor::increment_no_of_rotations() {
 
+    no_of_rotations++;
+
 }
 
 vector<int> Rotor::advance_rotor_one_position() {
-    return vector<int>();
+
+    vector <int> permutation_cpy = vector <int> (NO_LETTERS, 0);
+
+    for(int i = 0; i < NO_LETTERS; i++) {
+        permutation_cpy[i] = permutation[i];
+    }
+
+    for(int i = 0; i < NO_LETTERS; i++) {
+        permutation[(NO_LETTERS + (i-1)) % NO_LETTERS] = (NO_LETTERS + permutation_cpy[i] - 1) % NO_LETTERS;
+    }
+
+    return permutation;
+
 }
