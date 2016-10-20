@@ -2,6 +2,7 @@
 // Created by cep215 on 18/10/16.
 //
 
+
 #include "Plugboard.hpp"
 
 Plugboard::Plugboard(char *file) : Mapping() {
@@ -10,6 +11,10 @@ Plugboard::Plugboard(char *file) : Mapping() {
     int x;
 
     ifstream f(file);
+
+    if(!f) {
+        throw invalid_argument("File does not exist");
+    }
 
     while (f >> x) {
         plugs.push_back(x);
