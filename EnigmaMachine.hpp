@@ -8,9 +8,11 @@
 #include <cmath>
 #include <memory>
 #include <vector>
+
 #include "Rotor.hpp"
 #include "Plugboard.hpp"
 #include "Reflector.hpp"
+#include "Mapping.hpp"
 
 using namespace std;
 

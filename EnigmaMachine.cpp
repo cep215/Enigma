@@ -42,10 +42,21 @@ void EnigmaMachine::perform_rotation() {
     int prev_no_of_rotations, curr_no_of_rotations;
 
     for(int i = 0; i < rotors.size(); i++) {
-        cout<< "\n" << "Rotator "<< i << ": ";
-        rotors[i] -> display();
-        cout<< "\n";
-        
+        cout << "\n" << "Rotator " << i << ": ";
+        rotors[i]->display();
+        cout << "\n";
+
+        prev_no_of_rotations = (int) (rotors[i]->get_no_of_rotations()
+                                      / (pow((double) NO_LETTERS, i))) % NO_LETTERS;
+
+        rotors[i]->increment_no_of_rotations();
+
+        curr_no_of_rotations = (int) (rotors[i]->get_no_of_rotations()
+                                      / (pow((double) NO_LETTERS, i))) % NO_LETTERS;
+
+        if (prev_no_of_rotations != curr_no_of_rotations) {
+            rotors[i]->advance_rotor_one_position();
+        }
     }
 
 }
@@ -59,8 +70,7 @@ char EnigmaMachine::encode_chr(char chr) {
         exit(0);                       //TODO: Give an error message
     }
 
-    int encryption = chr - 'A'; // integer representation of the letter(chr)
-                                // to be encoded
+    int encryption = chr - 'A'; // integer representation of the letter to be encoded
 
     plugboard -> calculate_mapping(encryption);
 

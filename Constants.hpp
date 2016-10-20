@@ -1,0 +1,11 @@
+//
+// Created by Catalina Popescu on 19/10/2016.
+//
+
+#ifndef CENIGMA_CEP215_CONSTANTS_HPP
+#define CENIGMA_CEP215_CONSTANTS_HPP
+
+#define NO_LETTERS 26
+#define REFLECTION_OFFSET 13
+
+#endif //CENIGMA_CEP215_CONSTANTS_HPP

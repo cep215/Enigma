@@ -5,8 +5,14 @@
 #ifndef CENIGMA_CEP215_REFLECTOR_HPP
 #define CENIGMA_CEP215_REFLECTOR_HPP
 
+#include "Mapping.hpp"
 
-class Reflector {
+
+class Reflector : public Mapping {
+
+public:
+
+    Reflector();
 
 };
 

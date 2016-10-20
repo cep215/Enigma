@@ -5,11 +5,16 @@
 #ifndef CENIGMA_CEP215_PLUGBOARD_HPP
 #define CENIGMA_CEP215_PLUGBOARD_HPP
 
+#include <stdexcept>
+#include <vector>
+#include <algorithm>
 
-class Plugboard {
+#include "Mapping.hpp"
+
+class Plugboard : public Mapping{
 
 public:
-    Plugboard(char *string);
+    Plugboard(char *file);
 };
 
 
