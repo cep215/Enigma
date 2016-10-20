@@ -1,11 +1,7 @@
 //
 // Created by cep215 on 18/10/16.
 //
-
-#include <iostream>
 #include "EnigmaMachine.hpp"
-
-using namespace std;
 
 
 EnigmaMachine::EnigmaMachine(int argc, char **argv) {
@@ -42,9 +38,9 @@ void EnigmaMachine::perform_rotation() {
     int prev_no_of_rotations, curr_no_of_rotations;
 
     for(int i = 0; i < rotors.size(); i++) {
-        cout << "\n" << "Rotator " << i << ": ";
-        rotors[i]->display();
-        cout << "\n";
+        //cout << "\n" << "Rotator " << i << ": ";
+        //rotors[i] -> display();
+        //cout << "\n";
 
         prev_no_of_rotations = (int) (rotors[i]->get_no_of_rotations()
                                       / (pow((double) NO_LETTERS, i))) % NO_LETTERS;
@@ -67,7 +63,7 @@ char EnigmaMachine::encode_chr(char chr) {
     bool rotors_exist = (rotors.size() != 0);
 
     if(!(chr >= 'A' && chr <= 'Z')) {
-        exit(0);                       //TODO: Give an error message otherwise
+        throw invalid_argument("Not a valid character");
     }
 
     int encryption = chr - 'A'; // integer representation of the letter to be encoded
