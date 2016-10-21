@@ -44,7 +44,8 @@ vector<int> Rotor::advance_rotor_one_position() {
     }
 
     for(int i = 0; i < NO_LETTERS; i++) {
-        permutation[(NO_LETTERS + (i-1)) % NO_LETTERS] = (NO_LETTERS + permutation_cpy[i] - 1) % NO_LETTERS;
+        permutation[(NO_LETTERS + (i-1)) % NO_LETTERS] = (NO_LETTERS +
+                permutation_cpy[i] - 1) % NO_LETTERS;
     }
 
     return permutation;
