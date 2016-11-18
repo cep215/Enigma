@@ -1,0 +1,78 @@
+The Enigma Machine
+An Enigma machine is a device that can encrypt and decrypt messages that are written in a fixed sized
+alphabet (usually the 26 upper-case Latin letters A-Z). Figure 1 shows how a battery powered Enigma
+machine with a four letter alphabet (ASDF) could be wired. The key components of an Enigma machine
+are:
+• a set of input switches;
+• a plugboard with a number of plug cables;
+• a number of rotors;
+• a reflector;
+• an output board.
+To send a message securely over a public channel (e.g. radio), two identically configured Enigma
+machines are needed. One operator composes a message and types it one character a time using their
+Enigma machine’s input switches, which causes letters to light up on the output board. Another
+operator writes down this encrypted sequence and transmits it over the radio. At the other end of the
+radio, an operator receives the encrypted sequence of characters which he writes down. This sequence
+can then be typed into the receiver’s Enigma machine where the decrypted characters can be read off of
+the output board.
+Once configured, an Enigma machine encrypts its input using an invertible function, which is why
+two identically configured machines are needed to securely send and receive a message.
+Components
+As already mentioned, there are five key components to the Enigma machine. The input switches and
+output board are straightforward.
+Rotors
+A rotor is a wheel with the upper-case alphabet in order on the rim and a hole for an axle. On both
+sides of a rotor are 26 contacts each under a letter. Each contact on one side is wired to a contact on
+the other side at a different position. A rotor implements an irreflexive, 1-1 and onto function between
+the upper-case letters, i.e. each letter is mapped to a different one.
+An Enigma machine has several rotors with different wiring inside each. These can be arranged in
+any order on the axle. At the start of the war, an Enigma machine had five different rotors available
+with room on the axle for three. The first part of setting up an Enigma machine was to put three rotors
+on the axle in the order set for the day. The second part was to rotate the rotors manually to specified
+positions (this controls which letter on each rotor is visible).
+With three rotors in position there is a connection from each key to the right contact on the first
+rotor and then through to the left side of the final rotor. The connection then goes through the
+reflector and then back through the rotors in the reverse order to the output board’s lights.
+Reflector
+The reflector is a device at the end of the rotors which has contacts for each letter of the alphabet
+on one side only. The letters are wired up in pairs, so that an input current on a letter is reflected back
+to a different letter.
+Plugboard
+The plugboard consists of a series of contacts that can be connected by plugboard cables to swap the
+input and output letters. In Figure 1 a plugboard cable swaps the inputs on D and S from the keyboard
+when sending them to the first rotor and also swaps them when sending a signal back to the output
+board’s lights. If there is no plugboard cable present then the plugboard acts as an identity mapping.
+For example, in Figure 1 the key 'A' goes unmodified to the first rotor.
+
+Monoalphabetic Encoding
+
+Writing p for the map of the plugboard, fn for the map of the nth rotor and r for the map of the reflector,
+then each input letter x entered into an n-rotor Enigma machine is translated to:
+(p ◦ f^(−1)(1) ◦ f^(−1)(2)◦ · · · ◦ f^(−1)(n) ◦ r ◦ f(n) ◦ · · · ◦ f(2) ◦ f(1) ◦ p)(x)
+The plugboard, rotor and reflector maps all have inverses (the plugboard and reflector maps are selfinverse).
+Therefore entering the output from an Enigma machine into another one with the same set-up
+returns the original message.
+This describes a monoalphabetic encoding, that is each letter is mapped to a different one by the
+machine in a predictable way. This kind of encryption is not too difficult to break. If you know the
+language a message was written in, and the average frequency distribution of letters in common texts
+for that language, then the most frequent letters in the message likely gives a partial inversion of the
+encoding function. Common words can then be deduced from this and more entries can be added to the
+inverse function.
+
+Polyalphabetic Encoding
+
+The idea of a polyalphabetic encoding was invented before 1800 by Thomas Jefferson. After a letter has
+been encoded the encoding map is changed in a regular way (so the intended receiver can decode it).
+This prevents the letter frequency analysis (described above) from being an effective decoding technique.
+The encoding map is changed in an Enigma machine by rotating the rotors after each key is pressed
+(as shown in Figure 2). Specifically after each key press the first rotor is rotated by one step (so, for
+example, an input on 'A' becomes an input on 'B'). Notice that this rotation affects the return path
+through the rotors, as well as the initial path to the reflector.
+The rotors also featured one or two notches on the rim. When rotating, if a notch was in the correct
+position then the mechanism that caused the first rotor to rotate would also cause the next rotor along
+to rotate. If the notch was not in position, only the first (or current) rotor would rotate.
+In the simplest set-up, with a notch on the first letter of all rotors, then after 26 steps of the first
+rotor the second rotor would also be rotated one step. When the second rotor has completely rotated
+the third rotor would then be stepped once. Note that the reflector does not rotate.
+For a 3 rotor system, unless a message is longer than 17 576 characters, each character would 
+be encoded with a different encoding map.
